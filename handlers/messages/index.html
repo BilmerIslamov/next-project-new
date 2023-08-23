@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-weight: 200;
+            background: #fff;
+        }
+
+        #main {
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 50px;
+            margin-bottom: 10px;
+        }
+
+        img {
+            width: 70px;
+            margin: 30px auto;
+        }
+
+        p {
+            width: 350px;
+            margin: 0 auto;
+        }
+
+        button {
+            bottom: 0;
+            border-radius: 5px;
+            margin-top: 50px;
+            height: 60px;
+            width: 200px;
+            font-size: 20px;
+            background: orange;
+            color: #fff;
+            font-weight: 500;
+            transition: all 500ms ease;
+            cursor: pointer;
+            border: none;
+            text-transform: capitalize;
+            letter-spacing: 2px;
+        }
+
+        button:hover {
+            background: rgb(255, 204, 109);
+        }
+
+        #form {
+            display: none;
+            text-align: center;
+        }
+
+        input {
+            width: 98%;
+            outline: none;
+            margin: 18px 5%;
+            padding: 15px 10px;
+            font-size: 14px;
+            border: 2px solid silver;
+            border-radius: 5px;
+        }
+
+        input:focus {
+            border-color: #db5d5d;
+        }
+    </style>
+
+    <div id="main">
+        <h1>Онлайн магазин</h1>
+        <img src="https://cdn-icons-png.flaticon.com/512/3595/3595455.png">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium ipsum magni, molestias.</p>
+        <button id="buy">купить</button>
+    </div>
+    <form id="form">
+        <input type="text" placeholder="ИMя" id="user_name"> <input type="text" placeholder="Email" id="user_email">
+        <input type="text" placeholder="Тeлedoн" id="user_phone"> <button id="order">0дормиTb</button>
+    </form>
+
+
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <script>
+        let tg = window.Telegram.WebApp
+        let buy = document.getElementById("buy");
+        let order = document.getElementById("order");
+        bug.addEventListener("click", () => {
+            document.getElementById("main").style.display = "none";
+            document.getElementById("form").style.display = "block";
+            document.getElementById("User_name").value = tg.initDataUnsafe.first_name + " " + tg.initDataUnsafe.last_name
+        });
+
+
+        order.addEventListener("click", () => {
+            document.getElementById("error").innerText = '';
+            let name = document.getElementById("user_name").value;
+            let email = document.getElementById("user_email").value;
+            let phone = document.getElementById("user_phone").value;
+            if (name.Length < 5) {
+                document.getElementById("error").innerText = 'Quибka в имени':
+                return;
+            }
+            if (email.length < 5) {
+                document.getElementById("error").innerText = '0шnбка в email';
+                return;
+            }
+            if (phone.Length < 5) {
+                document.getElementById("error").innerText = 'Oшибка в номере телего'
+                return;
+            }
+            
+            let data = {
+                name: name,
+                email: email,
+                phone: phone,
+            }
+            tg.sendData('');
+            ta.close();
+        });
+
+    </script>
+</body>
+
+</html>
